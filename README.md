@@ -1,5 +1,5 @@
 # android-emulator-x11
-Docker container ready to run android emulator through x11.
+Docker container ready to run an android emulator through x11.
 
 You must ensure you're running the container from a user with uid:gid 1000:1000 in the host machine.
 
