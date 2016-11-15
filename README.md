@@ -5,7 +5,7 @@ You must ensure you're running the container from a user with uid:gid 1000:1000 
 
 You must give others rw access to /dev/kvm (yes this is a security issue, of course madmoiselle)
 ```sh
-sudo chown o+rw /dev/kvm
+sudo chmod o+rw /dev/kvm
 ```
 
 To run without docker-compose:
