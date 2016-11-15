@@ -3,7 +3,7 @@ Docker container ready to run an android emulator through x11.
 
 You must ensure you're running the container from a user with uid:gid 1000:1000 in the host machine.
 
-You must give others rw access to /dev/kvm (yes this is a security issue ofcourse madmoiselle)
+You must give others rw access to /dev/kvm (yes this is a security issue, of course madmoiselle)
 ```sh
 chown o+rw /dev/kvm
 ```
