@@ -6,6 +6,7 @@ services:
     privileged: true
     image: "pinfake/android-emulator-x11"
     volumes:
+        - "/usr/lib:/usr/lib"
         - "/tmp/.X11-unix:/tmp/.X11-unix" 
     ports: 
       - "5037:5037"
