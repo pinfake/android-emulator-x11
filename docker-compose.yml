@@ -1,0 +1,12 @@
+version: '2'
+services:
+  main:
+    environment:
+        - DISPLAY
+    privileged: true
+    image: "pinfake/android-emulator-x11"
+    volumes:
+        - "/tmp/.X11-unix:/tmp/.X11-unix" 
+    ports: 
+      - "5037:5037"
+      - "5554:5555"
