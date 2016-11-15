@@ -10,7 +10,8 @@ chown o+rw /dev/kvm
 
 To run without docker-compose:
 ```sh
-docker run -d --privileged --name android-emulator -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix pinfake/android-emulator-x11 "@nexus"
+docker run -d --privileged --name android-emulator -e DISPLAY=$DISPLAY \
+-v /tmp/.X11-unix:/tmp/.X11-unix pinfake/android-emulator-x11 "@nexus"
 ```
 With compose:
 
