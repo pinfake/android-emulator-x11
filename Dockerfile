@@ -1,8 +1,6 @@
 FROM ubuntu:latest
 RUN apt-get update && \
     apt-get install -y curl default-jre sudo
-RUN mv /usr/lib/sudo /usr/local/lib/sudo
-RUN ldconfig
 RUN export uid=1000 gid=1000 && \
     mkdir -p /home/developer && \
     echo "developer:x:${uid}:${gid}:Developer,,,:/home/developer:/bin/bash" >> /etc/passwd && \

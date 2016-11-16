@@ -1,4 +1,5 @@
 #!/bin/bash
+ldconfig -r /hostlib
 UNIXSOCKET=/tmp/.X11-unix/X${DISPLAY:1}
 UNIXSOCKET_OWNER=`stat -c %U $UNIXSOCKET`
 sudo chmod o+rw /dev/kvm
