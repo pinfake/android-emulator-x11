@@ -1,8 +1,6 @@
 FROM ubuntu:latest
 MAINTAINER Pin <pinfake@hotmail.com>
-EXPOSE 5037
-EXPOSE 5554
-EXPOSE 5555
+EXPOSE 5037 5554 5555
 RUN apt-get update && \
     apt-get install -y curl default-jre
 ENV ANDROID_HOME="/opt/android-sdk-linux"
