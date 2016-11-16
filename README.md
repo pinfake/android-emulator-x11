@@ -13,9 +13,9 @@ xhost +
 
 Then, to run without docker-compose:
 ```sh
-docker run -d --privileged --name android-emulator -e DISPLAY=$DISPLAY \
--p "0.0.0.0:5037:5037" -p "0.0.0.0:5554:5554" -p "0.0.0.0:5555:5555"
--v /tmp/.X11-unix:/tmp/.X11-unix -v /usr/lib:/hostlib/usr/lib \
+docker run -d --privileged --name android-emulator --net=host \
+-e DISPLAY=$DISPLAY \
+-v /tmp/.X11-unix:/tmp/.X11-unix -v /usr/lib:/usr/lib \
 pinfake/android-emulator-x11
 ```
 

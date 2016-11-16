@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM debian:8
 MAINTAINER Pin <pinfake@hotmail.com>
 EXPOSE 5037 5554 5555
 RUN apt-get update && \
@@ -12,5 +12,4 @@ RUN cd /tmp && \
 RUN echo "y" | android update sdk --no-ui --force -a --filter platform-tools,android-23,build-tools-23,sys-img-x86-android-23
 RUN echo "n" | android create avd --force -n nexus -t android-23 -b default/x86
 COPY avd/config.ini $ANDROID_HOME/.android/avd/nexus.avd/
-COPY script/emulator.sh $ANDROID_HOME/tools
-ENTRYPOINT ["emulator.sh"]
+ENTRYPOINT ["emulator64-x86","@nexus"]
