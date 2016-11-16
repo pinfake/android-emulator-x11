@@ -6,17 +6,20 @@ This container requires KVM enabled on the host machine.
 
 It will only run on 64 bit linux distros (debian,ubuntu,arch tested so far)
 
-You must ensure you are running the container from a user with uid:gid 1000:1000 in the host machine.
+You must enable generic x11 access to the host with:
+```sh
+xhost +
+```
 
-To run without docker-compose:
+Then, to run without docker-compose:
 ```sh
 docker run -d --privileged --name android-emulator -e DISPLAY=$DISPLAY \
 -p "0.0.0.0:5037:5037" -p "0.0.0.0:5554:5554" -p "0.0.0.0:5555:5555"
 -v /tmp/.X11-unix:/tmp/.X11-unix -v /usr/lib:/hostlib/usr/lib \
 pinfake/android-emulator-x11
 ```
-With compose:
 
+With compose:
 ```sh
 docker-compose up -d
 ```
