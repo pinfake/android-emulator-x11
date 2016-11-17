@@ -1,4 +1,4 @@
-FROM debian:8
+FROM ubuntu:trusty
 MAINTAINER Pin <pinfake@hotmail.com>
 EXPOSE 5037 5554 5555
 RUN apt-get update && \
