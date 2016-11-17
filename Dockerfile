@@ -3,7 +3,7 @@ MAINTAINER Pin <pinfake@hotmail.com>
 EXPOSE 5037 5554 5555
 RUN dpkg --add-architecture i386
 RUN apt-get update && \
-    apt-get install -y curl && \
+    apt-get install -y curl default-jre-headless && \
     apt-get clean
 ENV ANDROID_HOME="/opt/android-sdk-linux"
 ENV ANDROID_SDK_HOME="${ANDROID_HOME}"
