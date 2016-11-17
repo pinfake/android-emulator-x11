@@ -9,3 +9,7 @@ services:
     volumes:
         - "/usr/lib:/usr/lib"
         - "/tmp/.X11-unix:/tmp/.X11-unix" 
+        - "sdk:/opt/android-sdk-linux"
+volumes:
+    sdk:
+        driver: local

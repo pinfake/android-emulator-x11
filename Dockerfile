@@ -1,7 +1,6 @@
-FROM debian:8
+FROM debian:jessie
 MAINTAINER Pin <pinfake@hotmail.com>
 EXPOSE 5037 5554 5555
-RUN dpkg --add-architecture i386
 RUN apt-get update && \
     apt-get install -y curl default-jre-headless && \
     apt-get clean
