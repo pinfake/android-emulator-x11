@@ -16,7 +16,7 @@ Then, to run without docker-compose:
 docker run -d --privileged --name android-emulator --net=host \
 -e DISPLAY=$DISPLAY \
 -v /tmp/.X11-unix:/tmp/.X11-unix -v /usr/lib:/usr/lib \
-pinfake/android-emulator-x11
+pinfake/android-emulator-x11:ubuntu-trusty
 ```
 
 With compose:
