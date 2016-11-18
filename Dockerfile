@@ -2,10 +2,10 @@ FROM ubuntu:trusty
 MAINTAINER Pin <pinfake@hotmail.com>
 EXPOSE 5037 5554 5555
 RUN apt-get update && \
-    apt-get install -y curl default-jre
+    apt-get install -y curl default-jre libgl1-mesa-glx
 ENV ANDROID_HOME="/opt/android-sdk-linux"
 ENV ANDROID_SDK_HOME="${ANDROID_HOME}"
-ENV PATH="${PATH}:${ANDROID_SDK_HOME}/tools"
+ENV PATH="${PATH}:${ANDROID_SDK_HOME}/tools:${ANDROID_SDK_HOME}/platform-tools"
 RUN cd /tmp && \
     curl -O https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && \
     cd /opt && tar xzf /tmp/*.tgz && rm /tmp/*.tgz
