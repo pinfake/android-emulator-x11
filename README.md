@@ -6,7 +6,7 @@ This container requires KVM enabled on the host machine.
 
 It will only run on 64 bit linux distros (debian,ubuntu,arch tested so far)
 
-You must enable generic x11 access to the host with:
+You must enable global x11 access to the host with:
 ```sh
 xhost +
 ```
