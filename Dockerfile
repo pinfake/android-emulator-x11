@@ -1,9 +1,8 @@
-FROM debian:jessie
+FROM base/archlinux
 MAINTAINER Pin <pinfake@hotmail.com>
 EXPOSE 5037 5554 5555
-RUN apt-get update && \
-    apt-get install -y curl default-jre-headless && \
-    apt-get clean
+RUN sed -i 's/^SigLevel.*$/SigLevel = Never/g' /etc/pacman.conf
+RUN pacman -Suy --noconfirm curl jre8-openjdk-headless
 ENV ANDROID_HOME="/opt/android-sdk-linux"
 ENV ANDROID_SDK_HOME="${ANDROID_HOME}"
 ENV PATH="${PATH}:${ANDROID_SDK_HOME}/tools"
