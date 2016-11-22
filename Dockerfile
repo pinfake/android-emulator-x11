@@ -1,8 +1,8 @@
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 MAINTAINER Pin <pinfake@hotmail.com>
 EXPOSE 5037 5554 5555
 RUN apt-get update && \
-    apt-get install -y curl default-jre-headless libgl1-mesa-glx && \
+    apt-get install -y curl default-jre-headless && \
     apt-get clean
 ENV ANDROID_HOME="/opt/android-sdk-linux"
 ENV ANDROID_SDK_HOME="${ANDROID_HOME}"
