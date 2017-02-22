@@ -4,7 +4,7 @@ Docker container ready to run an android emulator through x11.
 
 This container requires KVM enabled on the host machine.
 
-It will only run on 64 bit linux distros (debian,ubuntu,arch tested so far)
+It will only run on 64 bit linux distros (debian,ubuntu,arch tested so far).
 You should use the branch that matches the linux distribution that you are using as host. It most certainly won't work any other way around (this is all about X11 acceleration and the /usr/lib:/usr/lib mapping).
 
 You must enable global x11 access to the host with:
