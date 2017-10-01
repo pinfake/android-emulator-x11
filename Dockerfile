@@ -7,7 +7,7 @@ RUN pacman -Suy --noconfirm curl jre8-openjdk-headless unzip
 ENV ANDROID_HOME="/opt/android-sdk-linux"
 ENV ANDROID_SDK_HOME="${ANDROID_HOME}"
 ENV ANDROID_SDK_ROOT="${ANDROID_HOME}"
-ENV PATH="${PATH}:${ANDROID_SDK_HOME}/tools:${ANDROID_SDK_HOME}/tools/bin:${ANDROID_SDK_HOME}/emulator"
+ENV PATH="${PATH}:${ANDROID_SDK_HOME}/tools:${ANDROID_SDK_HOME}/tools/bin:${ANDROID_SDK_HOME}/emulator:${ANDROID_SDK_HOME}/platform-tools"
 RUN cd /tmp && \
     curl -O https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip && \
     mkdir $ANDROID_HOME && cd $ANDROID_HOME && unzip /tmp/*.zip && rm /tmp/*.zip
