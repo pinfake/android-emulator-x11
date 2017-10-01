@@ -5,7 +5,7 @@ services:
         - DISPLAY
     privileged: true
     network_mode: "host"
-    image: "pinfake/android-emulator-x11:archlinux-latest"
+    image: "pinfake/android-emulator-x11:archlinux-25"
     volumes:
         - "/usr/lib:/usr/lib"
         - "/tmp/.X11-unix:/tmp/.X11-unix" 

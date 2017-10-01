@@ -2,14 +2,18 @@ FROM base/archlinux
 MAINTAINER Pin <pinfake@hotmail.com>
 EXPOSE 5037 5554 5555
 RUN sed -i 's/^SigLevel.*$/SigLevel = Never/g' /etc/pacman.conf
-RUN pacman -Suy --noconfirm curl jre8-openjdk-headless
+#RUN pacman -Suy --noconfirm curl jre8-openjdk-headless unzip qt5-svg
+RUN pacman -Suy --noconfirm curl jre8-openjdk-headless unzip
 ENV ANDROID_HOME="/opt/android-sdk-linux"
 ENV ANDROID_SDK_HOME="${ANDROID_HOME}"
-ENV PATH="${PATH}:${ANDROID_SDK_HOME}/tools"
+ENV ANDROID_SDK_ROOT="${ANDROID_HOME}"
+ENV PATH="${PATH}:${ANDROID_SDK_HOME}/tools:${ANDROID_SDK_HOME}/tools/bin:${ANDROID_SDK_HOME}/emulator"
 RUN cd /tmp && \
-    curl -O https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && \
-    cd /opt && tar xzf /tmp/*.tgz && rm /tmp/*.tgz
-RUN echo "y" | android update sdk --no-ui --force -a --filter android-23,sys-img-x86-android-23
-RUN echo "n" | android create avd --force -n nexus -t android-23 -b default/x86
+    curl -O https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip && \
+    mkdir $ANDROID_HOME && cd $ANDROID_HOME && unzip /tmp/*.zip && rm /tmp/*.zip
+RUN echo "y" | sdkmanager "emulator" "platforms;android-25" "system-images;android-25;google_apis;x86_64"
+RUN sdkmanager --update
+RUN echo "n" | avdmanager create avd --force -n nexus -k "system-images;android-25;google_apis;x86_64" --abi "google_apis/x86_64"
 COPY avd/config.ini $ANDROID_HOME/.android/avd/nexus.avd/
-ENTRYPOINT ["emulator64-x86","@nexus"]
+WORKDIR ${ANDROID_HOME}/emulator
+ENTRYPOINT ["emulator","-verbose","-skin","800x1280","@nexus"]
