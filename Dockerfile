@@ -16,4 +16,4 @@ RUN sdkmanager --update
 RUN echo "n" | avdmanager create avd --force -n nexus -k "system-images;android-25;google_apis;x86_64" --abi "google_apis/x86_64"
 COPY avd/config.ini $ANDROID_HOME/.android/avd/nexus.avd/
 WORKDIR ${ANDROID_HOME}/emulator
-ENTRYPOINT ["emulator","-verbose","-skin","800x1280","@nexus"]
+ENTRYPOINT ["emulator","-verbose","-skin","800x1280","@nexus","-use-system-libs"]
